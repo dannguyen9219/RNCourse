@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, TextInput, Button, StyleSheet } from "react-native"
+import { View, TextInput, Button, StyleSheet, Modal } from "react-native"
 
 
 // Application Screen || Define Exports
@@ -18,18 +18,20 @@ export const GoalInput = (props) => {
   }
   
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Your Fitness Goal"
-        onChangeText={goalInputHandler}
-        value={enteredGoal}
-      />
-      <Button
-        title="Add Goal"
-        onPress={addGoalHandler}
-      />
-    </View>
+    <Modal visible={props.visible} animationType="slide">
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your Fitness Goal"
+          onChangeText={goalInputHandler}
+          value={enteredGoal}
+        />
+        <Button
+          title="Add Goal"
+          onPress={addGoalHandler}
+        />
+      </View>
+    </Modal>
   )
 }
 
