@@ -18,8 +18,14 @@ export default function App() {
   const addGoalHandler = (enteredGoal) => {
     setGoals(currentGoals => [
       ...currentGoals,
-      { text: enteredGoal, key: Math.random().toString() }
+      { text: enteredGoal, id: Math.random().toString() }
     ])
+  }
+
+  const deleteGoalHandler = (id) => {
+    setGoals(currentGoals => {
+      return currentGoals.filter((goal) => goal.id !== id)
+    })
   }
 
   return (
@@ -30,12 +36,16 @@ export default function App() {
           data={goals}
           renderItem={itemData => {
             return (
-              <GoalItem text={itemData.item.text} />
+              <GoalItem
+                text={itemData.item.text}
+                id={itemData.item.id}
+                onDeleteItem={deleteGoalHandler}
+              />
             )
           }}
-        // keyExtractor={(item, index) => {
-        //   return item.id
-        // }}
+          keyExtractor={(item, index) => {
+            return item.id
+          }}
         />
       </View>
     </View>

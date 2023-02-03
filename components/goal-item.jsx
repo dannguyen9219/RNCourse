@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Pressable } from "react-native"
 
 
 // Application Screen || Define Exports
@@ -8,7 +8,13 @@ import { View, Text, StyleSheet } from "react-native"
 export const GoalItem = (props) => {
   return (
     <View style={styles.goalItem}>
-      <Text style={styles.goalText}>{props.text}</Text>
+      <Pressable
+        android_ripple={{ color: "#ffa6a6" }}
+        onPress={props.onDeleteItem.bind(this, props.id)}
+        style={({ pressed }) => pressed && styles.pressedItem }
+      >
+        <Text style={styles.goalText}>{props.text}</Text>
+      </Pressable>
     </View>
   )
 }
@@ -16,11 +22,14 @@ export const GoalItem = (props) => {
 const styles = StyleSheet.create({
   goalItem: {
     margin: 2,
-    padding: 10,
     borderRadius: 6,
     backgroundColor: "aliceblue",
   },
   goalText: {
     color: "black",
+    padding: 10,
+  },
+  pressedItem: {
+    opacity: 0.5,
   }
 })
