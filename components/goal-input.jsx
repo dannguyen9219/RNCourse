@@ -26,10 +26,14 @@ export const GoalInput = (props) => {
           onChangeText={goalInputHandler}
           value={enteredGoal}
         />
-        <Button
-          title="Add Goal"
-          onPress={addGoalHandler}
-        />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button title="Add Goal" onPress={addGoalHandler} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Cancel" />
+          </View>
+        </View>
       </View>
     </Modal>
   )
@@ -38,9 +42,10 @@ export const GoalInput = (props) => {
 const styles = StyleSheet.create({
   inputContainer: {
     flex: 1, // This will make the input container take up 1/4 of the screen
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
+    padding: 16,
     marginBottom: 24,
     borderBottomWidth: 1,
     borderBottomColor: '#cccccc',
@@ -48,8 +53,15 @@ const styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: "#cccccc",
-    width: "70%",
-    marginRight: 8,
+    width: "100%",
     padding: 8,
+  },
+  buttonContainer: {
+    marginTop: 16,
+    flexDirection: 'row',
+  },
+  button: {
+    width: "30%",
+    marginHorizontal: 8,
   },
 })
