@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native'
+import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList } from 'react-native'
 
 
 // Application Screen || Define Exports
@@ -14,7 +14,10 @@ export default function App() {
   }
 
   const addGoalHandler = () => {
-    setGoals(currentGoals => [...currentGoals, enteredGoal])
+    setGoals(currentGoals => [
+      ...currentGoals,
+      { text: enteredGoal, key: Math.random().toString() }
+    ])
   }
 
   return (
@@ -31,13 +34,19 @@ export default function App() {
         />
       </View>
       <View style={styles.goalsContainer}>
-        {goals.map((goal) => (
-          <View key={goal} style={styles.goalItem}>
-            <Text style={styles.goalText}>
-              {goal}
-            </Text>
-          </View>
-        ))}
+        <FlatList
+          data={goals}
+          renderItem={itemData => {
+            return (
+              <View style={styles.goalItem}>
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </View>
+            )
+          }}
+          // keyExtractor={(item, index) => {
+          //   return item.id
+          // }}
+        />
       </View>
     </View>
   )
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   goalsContainer: {
-    flex: 5, // This will make the goals container take up 3/4 of the screen
+    flex: 5, // This will make the goals container take up 5/6 of the screen
   },
   goalItem: {
     margin: 2,
