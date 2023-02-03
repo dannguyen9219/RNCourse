@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, FlatList, Button } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
 
 
 // Application Screen || Define Imports
@@ -39,35 +40,38 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <Button
-        title="Add New Goal"
-        color="#6aa8f9"
-        onPress={startAddGoalHandler}
-      />
-      <GoalInput
-        visible={modalIsVisible}
-        onAddGoal={addGoalHandler}
-        onCancel={endAddGoalHandler}
-      />
-      <View style={styles.goalsContainer}>
-        <FlatList
-          data={goals}
-          renderItem={itemData => {
-            return (
-              <GoalItem
-                text={itemData.item.text}
-                id={itemData.item.id}
-                onDeleteItem={deleteGoalHandler}
-              />
-            )
-          }}
-          keyExtractor={(item, index) => {
-            return item.id
-          }}
+    <>
+      <StatusBar style="dark" />
+      <View style={styles.appContainer}>
+        <Button
+          title="Add New Goal"
+          color="#0a7574f7"
+          onPress={startAddGoalHandler}
         />
+        <GoalInput
+          visible={modalIsVisible}
+          onAddGoal={addGoalHandler}
+          onCancel={endAddGoalHandler}
+        />
+        <View style={styles.goalsContainer}>
+          <FlatList
+            data={goals}
+            renderItem={itemData => {
+              return (
+                <GoalItem
+                  text={itemData.item.text}
+                  id={itemData.item.id}
+                  onDeleteItem={deleteGoalHandler}
+                />
+              )
+            }}
+            keyExtractor={(item, index) => {
+              return item.id
+            }}
+          />
+        </View>
       </View>
-    </View>
+    </>
   )
 }
 
@@ -77,6 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: "#ffffff",
   },
   goalsContainer: {
     flex: 5, // This will make the goals container take up 5/6 of the screen
