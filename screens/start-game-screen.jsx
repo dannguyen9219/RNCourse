@@ -11,7 +11,7 @@ import { PrimaryButton } from '../components/primary-button'
 // Application Screen || Define Exports
 // =================================================================================================
 // =================================================================================================
-export const StartGameScreen = () => {
+export const StartGameScreen = ({onPickNumber}) => {
   const [enteredNumber, setEnteredNumber] = useState('')
 
   const numberInputHandler = (inputText) => {
@@ -31,7 +31,9 @@ export const StartGameScreen = () => {
         'Number has to be between 1 and 99.',
         [{ text: 'Try Again', style: 'destructive', onPress: resetInputHandler }]
       )
+      return
     }
+    onPickNumber(chosenNumber)
   }
   
   return (
