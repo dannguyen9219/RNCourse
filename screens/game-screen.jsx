@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 
-// Application Screen || Define Exports
+// Application Screen || Define Imports
 // =================================================================================================
 // =================================================================================================
 import { Title } from '../components/title'

@@ -7,6 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 // Application Screen || Define imports
 // =================================================================================================
 // =================================================================================================
+import { COLORS } from './utilities/colors'
 import { StartGameScreen } from './screens/start-game-screen'
 import { GameScreen } from './screens/game-screen'
 
@@ -28,7 +29,7 @@ export default function App() {
   }
   
   return (
-    <LinearGradient colors={["#ffc45e" ,"#ffb3b3"]} style={styles.rootScreen}>
+    <LinearGradient colors={[COLORS.primary700 ,COLORS.primary900]} style={styles.rootScreen}>
       <ImageBackground
         source={require("./assets/images/dice.png")}
         resizeMode="cover"
