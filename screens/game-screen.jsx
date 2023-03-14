@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Alert } from 'react-native'
+import { View, StyleSheet, Alert } from 'react-native'
 
 
 // Application Screen || Define Imports
 // =================================================================================================
 // =================================================================================================
-import { COLORS } from '../utilities/colors'
 import { Title } from '../components/title'
+import { Card } from '../components/card'
+import { InstructionText } from '../components/instruction-text'
 import { GenerateRandomBetween } from '../utilities/game-logic'
 import { NumberContainer } from '../components/number-container'
 import { PrimaryButton } from "../components/primary-button"
+import { COLORS } from '../utilities/colors'
 
 
 // Application Screen || Define Exports
@@ -51,13 +53,13 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
     <View style={styles.screen}>
      <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>Higher or Lower</Text>
+      <Card>
+        <InstructionText>Higher or Lower</InstructionText>
         <View>
           <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>Higher</PrimaryButton>
           <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>Lower</PrimaryButton>
         </View>
-      </View>
+      </Card>
       <View>
         {/* LOG ROUNDS */}
       </View>
