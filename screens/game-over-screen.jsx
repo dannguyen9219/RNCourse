@@ -7,6 +7,7 @@ import { View, Image, Text, StyleSheet } from 'react-native'
 // =================================================================================================
 import { Title } from '../components/title'
 import { COLORS } from '../utilities/colors'
+import { PrimaryButton } from '../components/primary-button'
 
 
 // Application Screen || Define Exports
@@ -22,9 +23,10 @@ export const GameOverScreen = () => {
           source={require('../assets/game-over.png')}
         />
       </View>
-      <Text>
-        The Computer needed X rounds to guess your number Y.
+      <Text style={styles.summaryText}>
+        The Computer needed <Text style={styles.highlight}>X</Text> rounds to guess your number <Text style={styles.highlight}>Y</Text>.
       </Text>
+      <PrimaryButton>Start New Game</PrimaryButton>
     </View>
   )
 }
@@ -48,5 +50,15 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+  },
+  summaryText: {
+    fontFamily: "open-sans",
+    fontSize: 24,
+    textAlign: "center",
+    marginBottom: 24,
+  },
+  highlight: {
+    fontFamily: "open-sans-bold",
+    color: COLORS.primary800,
   },
 })
