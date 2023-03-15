@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Alert } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
 
 
 // Application Screen || Define Imports
@@ -57,10 +58,14 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
         <InstructionText style={styles.instructionText}>Higher or Lower</InstructionText>
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>Higher</PrimaryButton>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
+              <AntDesign name="upcircleo" size={24} color="white" />
+            </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
-            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>Lower</PrimaryButton>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
+              <AntDesign name="downcircleo" size={24} color="white" />
+            </PrimaryButton>
           </View>
         </View>
       </Card>
