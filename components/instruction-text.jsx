@@ -11,9 +11,9 @@ import { COLORS } from "../utilities/colors"
 // Application Screen || Define Exports
 // =================================================================================================
 // =================================================================================================
-export const InstructionText = ({ children }) => {
+export const InstructionText = ({ children, style }) => {
   return (
-    <Text style={styles.text}>{children}</Text>
+    <Text style={[styles.text, style]}>{children}</Text>
   )
 }
 
