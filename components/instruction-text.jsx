@@ -20,6 +20,7 @@ export const InstructionText = ({ children, style }) => {
 const styles = StyleSheet.create({
   text: {
     color: COLORS.primary700,
+    fontFamily: "open-sans",
     fontSize: 24,
     fontWeight: "bold",
   },
