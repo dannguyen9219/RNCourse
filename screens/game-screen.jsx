@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Alert, Text, FlatList } from 'react-native'
+import { View, StyleSheet, Alert, FlatList } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 
 
@@ -13,7 +13,6 @@ import { GenerateRandomBetween } from '../utilities/game-logic'
 import { NumberContainer } from '../components/number-container'
 import { GuessLogItem } from '../components/guess-log-item'
 import { PrimaryButton } from "../components/primary-button"
-import { COLORS } from '../utilities/colors'
 
 
 // Application Screen || Define Exports

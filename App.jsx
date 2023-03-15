@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react'
-import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useFonts } from 'expo-font'
@@ -18,6 +17,7 @@ import { GameScreen } from './screens/game-screen'
 // Application Screen || Define Exports
 // =================================================================================================
 // =================================================================================================
+// Guess My Number APP
 export default function App() {
   const [userNumber, setUserNumber] = useState()
   const [gameIsOver, setGameIsOver] = useState(true)
